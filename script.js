@@ -16,6 +16,8 @@ function sendDrawData(data) {
 function updateCanvas(data) {
 
   if (data.type === 'canvasState') {
+    console.log("Received canvasState from " + data.sender);
+
     const image = new Image();
     image.src = data.imageData;
     image.onload = () => {
@@ -31,7 +33,9 @@ function updateCanvas(data) {
     ctx.stroke();
   }
   // if the data type is requestCanvasState, provide the data, but not if we are the one who requested it
-  else if (data.type === 'requestCanvasState' && data.requester !== socket.id) {
+  else if (data.type === 'requestCanvasState' && data.sender !== socket.id) {
+    console.log("someone requested canvas state");
+
     const canvasStateMessage = {
       type: 'canvasState',
       imageData: canvas.toDataURL(),
@@ -42,7 +46,7 @@ function updateCanvas(data) {
 
 // Handle incoming messages from server
 socket.addEventListener('message', (event) => {
-  console.log("MESSAGE FROM SERVER DAWG ", event);
+  //console.log("MESSAGE FROM SERVER DAWG ", event);
 
   const data = JSON.parse(event.data);
   updateCanvas(data);

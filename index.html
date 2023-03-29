@@ -6,19 +6,39 @@
       #canvas {
         border: 1px solid black;
       }
+      /* put the erase button and color picker under the canvas */
+      #controls {
+        display: block;
+        margin-top: 10px;
+        /* centered */
+        margin-left: auto;
+        margin-right: auto;
+
+      }
+      /* centered erase button and color picker */
+      #erase-button, #color-picker {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      /* centered canvas */
+      #canvas {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
     </style>
 
     
   </head>
   <body>
     <canvas id="canvas" width="400" height="400"></canvas>
-    <button id="erase-button">Erase</button>
-    <!-- add color picker -->
-    <input type="color" id="color-picker" />
-
-
-
-
+    <div id="controls">
+        <button id="erase-button">Erase</button>
+        <!-- add color picker -->
+        <input type="color" id="color-picker" />
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
