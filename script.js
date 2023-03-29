@@ -93,3 +93,9 @@ socket.addEventListener('open', () => {
   };
   socket.send(JSON.stringify(canvasStateMessage));
 });
+
+// disable scrolling on iphones, so you can draw on the canvas
+document.body.addEventListener('touchmove', function(e) {
+  e.preventDefault();
+}
+, false);
