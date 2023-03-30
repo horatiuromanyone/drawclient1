@@ -27,6 +27,18 @@
         margin-left: auto;
         margin-right: auto;
       }
+      /* stop the page from moving on touch */
+      /* do not allow scrolling the page */
+      /* do not allow dragging */
+      body {
+        touch-action: none;
+        overflow: hidden;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        
+      }
 
     </style>
 
